@@ -1,7 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-img src="assets/image/Logo_DuocUC.png" alt="Duoc logo"></ion-img>
-    <ion-icon src="assets/image/Logo_DuocUC.png" alt="Duoc logo"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -21,5 +20,6 @@
     <ion-button (click)="ingresar()" expand="block" color="success" class="ion-padding-top">Ingresar</ion-button>
   </form>
   <br>
+  <ion-nav-link [routerLink]="['/recuperar']" color="primary" class="ion-text-end">Recuperar contraseña</ion-nav-link>
   <p>¿No estás registrado?<ion-nav-link [routerLink]="['/registro']" color="primary">Regístrate</ion-nav-link></p>
 </ion-content>
