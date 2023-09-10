@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'cam-con',
     loadChildren: () => import('./cam-con/cam-con.module').then( m => m.CamConPageModule)
   },
+  {
+    path: 'change-pass',
+    loadChildren: () => import('./change-pass/change-pass.module').then( m => m.ChangePassPageModule)
+  },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
 ];
 
 @NgModule({

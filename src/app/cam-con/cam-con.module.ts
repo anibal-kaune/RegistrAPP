@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,7 +15,8 @@ import { CamConPage } from './cam-con.page';
     FormsModule,
     IonicModule,
     CamConPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxScannerQrcodeModule
   ],
   declarations: [CamConPage]
 })

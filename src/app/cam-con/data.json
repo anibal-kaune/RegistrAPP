@@ -1,0 +1,16 @@
+{
+    "architect": {
+      "build": {
+        "options": {
+          "assets": [
+            {
+              "glob": "**/*",
+              "input": "node_modules/ngx-scanner-qrcode/wasm/",
+              "output": "./assets/wasm/",
+              "values":""
+            }
+          ]
+        }
+      }
+    }
+  }

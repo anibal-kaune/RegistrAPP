@@ -31,7 +31,7 @@ export class RecuperarPage implements OnInit {
     if(usuario.rut == f.rut && usuario.correo == f.correo){
       console.log('ingresado');
       localStorage.setItem('ingresado','true'); //bandera que indica sesion activa
-      this.navCtrl.navigateRoot('cam-con');
+      this.navCtrl.navigateRoot('change-pass');
     }else{
       const alert = await this.alertController.create({
         header: '¡Ha ocurrido un error!',
