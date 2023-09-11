@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  userAlum: string | null;
 
-  constructor() { }
+  constructor() {
+    let value = JSON.parse(localStorage.getItem("usuario")!);
+    this.userAlum = value.nombre;
+   }
 
   ngOnInit() {
   }

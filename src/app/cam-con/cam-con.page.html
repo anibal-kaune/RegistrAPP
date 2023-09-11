@@ -1,37 +1,42 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-back-button slot="start" defaultHref="home"></ion-back-button>
+    <ion-back-button slot="start" defaultHref="inicio"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">camCon</ion-title>
+      <ion-img src="assets/image/logo-duoc-alt.png" alt="Duoc logo" id="ima"></ion-img>
     </ion-toolbar>
   </ion-header>
-<h1>Hola</h1>
 
 <!-- For camera -->
 <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
 
-<!-- data  -->
-<span id="recolector" >{{ action.data.value | json }}</span><!-- value -->
+<!-- Recoleccion de la data  -->
+<span #myValue [hidden]="true">{{ action.data.value | json }}</span> <!-- value -->
 
-<!-- Loading -->
-<p *ngIf="action.isLoading">⌛ Loading...</p>
-<button (click)="recogerinfo()">ddasdadadas</button>
-<!-- start -->
-<button (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</button>
+<div id="body">
+  <div>
+    <!-- Imagen Cargando -->
+    <p *ngIf="action.isLoading">⌛ Cargando...</p>
 
+    <!-- Opcion Iniciar Scanneo -->
+    <h1 id="titutlo">Iniciar Scanner QR</h1>
+    
+    <ion-button expand="block" color="warning" (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</ion-button>
+  </div>
 
+  <!-- OPCION SUBIR ARCHIVOS -->
+  <br>
+  <!-- For select files -->
+  <p [hidden]="true">Subir Código QR</p>
+  <input [hidden]="true" #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'"/>
+  <br>
 
-<!-- OPCION SUBIR ARCHIVOS -->
-<!-- For select files -->
-<input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'"/>
-
-<div *ngFor="let item of qrCodeResult">
-  <p>{{ item.data | json }}</p>
+  <div id="btnScanerConfirmar">
+    <ion-button expand="block" color="warning" (click)="recogerinfo()" id="btnConfirmar">Confirmar</ion-button>
+  </div>
 </div>
-
 </ion-content>
