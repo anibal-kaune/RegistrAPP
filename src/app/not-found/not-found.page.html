@@ -1,20 +1,18 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="warning">
-    <ion-title></ion-title>
-
+  <ion-toolbar color="dark" id="tool">
+    <ion-img src="assets/image/logo-duoc.svg" alt="Duoc logo" id="ima"></ion-img>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Página no encontrada</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <div class="ion-text-center">
-    <h1>404</h1>
-    <p>La página que buscas no existe.</p>
-    <!-- Puedes agregar un botón o un enlace para regresar a la página de inicio u otra página de tu elección -->
-    <ion-button routerLink="/home">Ir a la página de inicio</ion-button>
+  <div>
+    
+    <div id="logout">
+      <h1 class="ion-text-center" style="color: rgb(56, 92, 252);">Página no encontrada</h1>
+      <p class="ion-text-center">No se ha encontrado la página que buscabas</p>
+    </div>
+    <div id="logout">
+      <ion-button [routerLink]="['/home']" expand="block" color="warning" class="ion-padding-top">Volver a home</ion-button>
+    </div>
   </div>
 </ion-content>

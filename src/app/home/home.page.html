@@ -1,15 +1,33 @@
-<!---->
 <ion-header [translucent]="true">
-  <ion-toolbar color="warning">
-    <ion-title color="primary" class="ion-text-center">
-      Inicio
-    </ion-title>
-    <ion-button [routerLink]="['/login']" class="ion-float-right">Login</ion-button>
+  <ion-toolbar color="dark" id="tool">
+    <ion-img src="assets/image/logo-duoc.svg" alt="Duoc logo" id="ima"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <img alt="Silhouette of mountains" src="assets/image/hello_there.gif" />
+<ion-content [fullscreen]="true" color="warning">
+
+  <ion-card id="carl">
+    <ion-card-header>
+      <h1 class="ion-text-center" id="titutlo">Inicio de sesión</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="bodyHome">
+        <form [formGroup]="formularioLogin" id="formid"> 
+          <ion-item>
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input formControlName="correo" fill="outline" placeholder="Correo" class="ion-padding"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password" fill="outline" placeholder="Contraseña" class="ion-padding"></ion-input>
+          </ion-item>
+          <br/>
+          <ion-button (click)="ingresar()" expand="block" color="warning" class="ion-padding-top">Ingresar</ion-button>
+        </form>
+        <br>
+        <ion-nav-link [routerLink]="['/recuperar']" id="rout" class="ion-text-end">Recuperar contraseña</ion-nav-link>
+        <p style="color: white;">¿No estás registrado? <ion-nav-link [routerLink]="['/registro']" id="rout">Regístrate</ion-nav-link></p>
+      </div>
+    </ion-card-content>
   </ion-card>
 </ion-content>
