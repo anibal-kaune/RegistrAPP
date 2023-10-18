@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -8,20 +8,17 @@ import { AlertController, IonicModule, NavController } from '@ionic/angular';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-
   formularioRegistro: FormGroup;
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
     public navCtrl: NavController) { 
       this.formularioRegistro = this.fb.group({
-        'nombre': new FormControl("", Validators.required),
-        'rut': new FormControl("", Validators.required),
-        'correo': new FormControl("", Validators.required),
-        'password': new FormControl("", Validators.required),
-        'confirmacionPassword': new FormControl("", Validators.required)
-        }); 
-    }
+      'nombre': new FormControl("", Validators.required),
+      'password': new FormControl("", Validators.required),
+      'confirmacionPassword': new FormControl("", Validators.required)
+      }); 
+  }
 
   ngOnInit() {
   }
@@ -41,14 +38,11 @@ export class RegistroPage implements OnInit {
     }
     var usuario = {
       nombre: f.nombre,
-      rut: f.rut,
-      correo: f.correo,
       password: f.password
     }
 
     localStorage.setItem('usuario',JSON.stringify(usuario));
-    window.location.href='/home';
+    window.location.href='/login';
   }
-
 
 }

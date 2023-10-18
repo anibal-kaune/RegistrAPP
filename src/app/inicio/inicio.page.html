@@ -1,18 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark" id="tool">
-    <ion-img src="assets/image/logo-duoc.svg" alt="Duoc logo" id="ima"></ion-img>
+  <ion-toolbar color="warning">
+    <ion-title #title class="ion-text-center" color="primary">Inicio</ion-title>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1 class="ion-text-center" style="color: rgb(56, 92, 252);">¡Bienvenido!  {{ userAlum }}</h1>
-  <ion-card>
-    <ion-card-content>
-      <ion-button [routerLink]="['/cam-con']" expand="block" color="warning">Registrar asistencia</ion-button>
-    </ion-card-content>
-  </ion-card>
-  <div id="logout">
-    <ion-button [routerLink]="['/home']" expand="block" color="dark" class="ion-padding-top">Cerrar Sesión</ion-button>
-  </div>
-  
+  <ion-segment [(ngModel)]="segmentValue" (ionChange)="segmentChanged()">
+    <ion-segment-button value="datos">
+      Mis datos
+    </ion-segment-button>
+    <ion-segment-button value="experiencia">
+      Experiencia laboral
+    </ion-segment-button>
+    <ion-segment-button value="certificacion">
+      Certificaciones
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>
