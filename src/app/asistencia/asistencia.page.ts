@@ -24,7 +24,6 @@ export class AsistenciaPage implements OnInit {
 
   cerrarSesion(){
     localStorage.removeItem("dataProfeCamera")
-    window.location.href='/home'
   }
   ngOnInit() {
   }

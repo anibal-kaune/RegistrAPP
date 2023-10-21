@@ -16,8 +16,11 @@ export class RegistroPage implements OnInit {
     public navCtrl: NavController) { 
       this.formularioRegistro = this.fb.group({
         'nombre': new FormControl("", Validators.required),
+        'apellido': new FormControl("", Validators.required),
         'rut': new FormControl("", Validators.required),
         'correo': new FormControl("", Validators.required),
+        'region': new FormControl("", Validators.required),
+        'comuna': new FormControl("", Validators.required),
         'password': new FormControl("", Validators.required),
         'confirmacionPassword': new FormControl("", Validators.required)
         }); 
@@ -41,8 +44,11 @@ export class RegistroPage implements OnInit {
     }
     var usuario = {
       nombre: f.nombre,
+      apellido: f.apellido,
       rut: f.rut,
       correo: f.correo,
+      region: f.region,
+      comuna: f.comuna,
       password: f.password
     }
 

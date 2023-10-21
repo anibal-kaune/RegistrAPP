@@ -12,7 +12,7 @@
     </ion-card-content>
   </ion-card>
   <div id="logout">
-    <ion-button [routerLink]="['/home']" expand="block" color="dark" class="ion-padding-top">Cerrar Sesión</ion-button>
+    <ion-button (click)="logOut()" [routerLink]="['/home']" expand="block" color="dark" class="ion-padding-top">Cerrar Sesión</ion-button>
   </div>
   
 </ion-content>
