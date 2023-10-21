@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomePage {
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
-    public navCtrl: NavController) {
+    public navCtrl: NavController,
+    private storage: Storage) {
       this.formularioLogin = this.fb.group({
         'correo': new FormControl("",Validators.required),
         'password': new FormControl("",Validators.required),

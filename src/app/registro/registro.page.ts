@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +14,8 @@ export class RegistroPage implements OnInit {
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
-    public navCtrl: NavController) { 
+    public navCtrl: NavController,
+    public storageService: StorageService) { 
       this.formularioRegistro = this.fb.group({
         'nombre': new FormControl("", Validators.required),
         'apellido': new FormControl("", Validators.required),
@@ -53,6 +55,7 @@ export class RegistroPage implements OnInit {
     }
 
     localStorage.setItem('usuario',JSON.stringify(usuario));
+    this.storageService.setData('user',usuario);
     window.location.href='/home';
   }
 
