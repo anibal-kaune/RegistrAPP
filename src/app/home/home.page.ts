@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { Geolocation } from '@capacitor/geolocation';
+
 
 @Component({
   selector: 'app-home',
@@ -12,10 +14,14 @@ export class HomePage {
 
   formularioLogin: FormGroup;
 
+  arrayPosts:any; //Creamos la variable donde guardaremos los datos que nos retorna el servicio
+
+
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
     public navCtrl: NavController,
-    private storage: Storage) {
+    private storage: Storage)
+    {
       this.formularioLogin = this.fb.group({
         'correo': new FormControl("",Validators.required),
         'password': new FormControl("",Validators.required),
@@ -42,5 +48,12 @@ export class HomePage {
   
       }
     }
+
+
+  async printCurrentPosition() {
+    const coordinates = await Geolocation.getCurrentPosition();
+
+    console.log('Current position:', coordinates);
+  };
 
 }

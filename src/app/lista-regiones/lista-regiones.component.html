@@ -1,0 +1,9 @@
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-select placeholder="Select a Region" (ionChange)="seleccionarRegion($event)">
+        <ion-select-option *ngFor="let region of regiones" [value]="region.id">{{ region.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

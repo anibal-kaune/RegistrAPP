@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
 import { StorageService } from '../services/storage.service';
-
+import { ListaRegionesComponent } from "../lista-regiones/lista-regiones.component"
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -11,6 +11,7 @@ import { StorageService } from '../services/storage.service';
 export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
+  regionSeleccionada: any;
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
@@ -58,6 +59,5 @@ export class RegistroPage implements OnInit {
     this.storageService.setData('user',usuario);
     window.location.href='/home';
   }
-
 
 }

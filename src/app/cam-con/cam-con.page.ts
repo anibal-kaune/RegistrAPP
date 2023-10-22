@@ -1,6 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, QueryList, enableProdMode } from '@angular/core';
 import { LOAD_WASM, NgxScannerQrcodeService, ScannerQRCodeConfig, ScannerQRCodeResult, ScannerQRCodeSelectedFiles } from 'ngx-scanner-qrcode';
 import { FormsModule } from '@angular/forms';
+
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-cam-con',
@@ -45,7 +49,7 @@ export class CamConPage implements OnInit {
     public recogerinfo() {
         this.spans.forEach((span) => {
         let tranfJSON = JSON.parse(span.nativeElement.innerHTML)
-        let busqueda = tranfJSON[0].value
+        let busqueda = tranfJSON[0].value        
         localStorage.setItem("dataProfeCamera",busqueda)
       });
       if (localStorage.getItem("dataProfeCamera") != undefined){
@@ -53,6 +57,30 @@ export class CamConPage implements OnInit {
       }
     }
 
-  ngOnInit() {}
+    async tomarFoto() {
+      const coordinates = await Geolocation.getCurrentPosition();
+      // Filtra los resultados para obtener solo los valores
+      let values1 = coordinates.coords["latitude"]
+      let values2 = coordinates.coords["longitude"]
+      console.log("latitud: ",values1)
+      console.log("longitud: ",values2)
+
+
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: true,
+        resultType: CameraResultType.Uri,
+        source: CameraSource.Camera,
+      });
+
+      var imageUrl = image.webPath;
+    };
+
+  ngOnInit() {
+    Camera.requestPermissions();
   }
+}
   
+
+
+
