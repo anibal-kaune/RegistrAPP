@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../services/storage.service';
+import { Usuario } from '../models/usuario';
 
 @Component({
   selector: 'app-inicio',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class InicioPage implements OnInit {
   userAlum: string | null;
 
-  constructor() {
+  constructor(public storageService: StorageService) {
     let value = JSON.parse(localStorage.getItem("usuario")!);
+    //const nam = this.storageService.showName("usuario");
     this.userAlum = value.nombre;
    }
 

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
 import { StorageService } from '../services/storage.service';
-import { ListaRegionesComponent } from "../lista-regiones/lista-regiones.component"
+import { Usuario } from '../models/usuario';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -11,7 +12,6 @@ import { ListaRegionesComponent } from "../lista-regiones/lista-regiones.compone
 export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
-  regionSeleccionada: any;
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
@@ -55,9 +55,20 @@ export class RegistroPage implements OnInit {
       password: f.password
     }
 
-    localStorage.setItem('usuario',JSON.stringify(usuario));
-    this.storageService.setData('user',usuario);
+    let person: Usuario={
+      nombre: f.nombre,
+      apellido: f.apellido,
+      rut: f.rut,
+      correo: f.correo,
+      region: f.region,
+      comuna: f.comuna,
+      password: f.password
+      }
+
+    //localStorage.setItem('usuario',JSON.stringify(usuario));
+    this.storageService.create("usuario",JSON.stringify(person));
     window.location.href='/home';
   }
+
 
 }

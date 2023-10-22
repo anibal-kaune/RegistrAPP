@@ -32,7 +32,7 @@ const routes: Routes = [
   {
     path: 'change-pass',
     loadChildren: () => import('./change-pass/change-pass.module').then( m => m.ChangePassPageModule),
-    canActivate: [GuardGuard]
+    canActivate: [LogedGuard]
   },
   {
     path: 'asistencia',

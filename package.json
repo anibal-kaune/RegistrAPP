@@ -28,6 +28,7 @@
     "@capacitor/geolocation": "^5.0.6",
     "@capacitor/haptics": "5.0.6",
     "@capacitor/keyboard": "5.0.6",
+    "@capacitor/preferences": "^5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/sqlite": "^5.36.0",
@@ -37,7 +38,7 @@
     "cordova-sqlite-storage": "^6.1.0",
     "ionicons": "^7.0.0",
     "ngx-scanner-qrcode": "^1.6.2",
-    "rxjs": "~7.8.0",
+    "rxjs": "^7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

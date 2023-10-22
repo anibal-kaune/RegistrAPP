@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { StorageService } from '../services/storage.service';
+import { Usuario } from '../models/usuario';
 
 @Component({
   selector: 'app-change-pass',
@@ -13,7 +15,8 @@ export class ChangePassPage implements OnInit {
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
-    public navCtrl: NavController) { 
+    public navCtrl: NavController,
+    public storageService: StorageService) { 
       this.formularioContrasena = this.fb.group({
         'password': new FormControl("", Validators.required),
         'confirmacionPassword': new FormControl("", Validators.required)
@@ -37,10 +40,22 @@ export class ChangePassPage implements OnInit {
       await alert.present();
       return;
     }
+
     var contra = {
       password: f.password
-    }
+      }
 
+    await this.storageService.read("usuario").then(async (data:any)=>{
+      let usu = JSON.parse(data.value);
+
+      if(this.formularioContrasena.valid, usu){
+  
+        usu.password = contra.password;
+        this.storageService.create("usuario",JSON.stringify(usu));
+        }
+    })
+    
+    /*
     const elemento = localStorage.getItem('usuario');
 
     if(this.formularioContrasena.valid, elemento){
@@ -49,7 +64,7 @@ export class ChangePassPage implements OnInit {
     con.password = contra.password;
     localStorage.setItem('usuario',JSON.stringify(con));
     }
-
+    */
     
     window.location.href='/home';
   }
