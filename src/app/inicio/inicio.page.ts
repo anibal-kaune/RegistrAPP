@@ -14,9 +14,10 @@ export class InicioPage implements OnInit {
   constructor(public storage: Storage){
   }
 
-   async ngOnInit() {
-    let value = JSON.parse(localStorage.getItem("usuario")!);
-    this.userAlum = value.nombre;
+    ngOnInit() {
+
+    this.nombreUsuario = localStorage.getItem('nombre')!
+
 
 }
 

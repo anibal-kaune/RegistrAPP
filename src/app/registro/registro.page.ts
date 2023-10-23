@@ -48,7 +48,7 @@ export class RegistroPage implements OnInit {
       // Obtener datos existentes
       const existingData = await this.storage.get('datos') || [];
     
-      // Agregar los nuevos datos al arreglo
+      // // Agregar los nuevos datos al arreglo
       existingData.push({
         nombre: f.nombre,
         apellido: f.apellido,
@@ -59,8 +59,8 @@ export class RegistroPage implements OnInit {
         password: f.password
       });
     
-      // Almacenar el arreglo actualizado
-      await this.storage.set('datos', existingData);
+      // // Almacenar el arreglo actualizado
+       await this.storage.set('datos', existingData);
   
       if(this.formularioRegistro.invalid){
         const alert = await this.alertController.create({
@@ -81,8 +81,8 @@ export class RegistroPage implements OnInit {
         comuna: f.comuna,
         password: f.password
       }
-
       localStorage.setItem('usuario',JSON.stringify(usuario));
+      localStorage.setItem("nombreUsuariJ",usuario.nombre)
       window.location.href='/home';
     }
 
