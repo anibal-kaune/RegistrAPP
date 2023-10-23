@@ -1,4 +1,42 @@
+
+
+npm install
+npm install rxjs
+
+npm run build
+
+localizacion:
+npm install @capacitor/geolocation
+npx cap sync
+
+
 dependencias Camarà:
 
 npm install @capacitor/camera
 npx cap sync
+
+
+para android:
+ionic build
+npx cap add android
+npx cap open android
+
+permisos android:
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
+para actualizar
+ionic build
+ionic capacitor sync
+
+
+
+
+-------
+
+storage:
+npm install @ionic/storage-angular
