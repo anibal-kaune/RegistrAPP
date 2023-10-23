@@ -1,0 +1,11 @@
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-select placeholder="Select a Comuna" (ionChange)="seleccionarComuna($event)">
+        <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.id">{{comuna.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

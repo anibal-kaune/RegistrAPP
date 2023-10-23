@@ -28,6 +28,7 @@ export class CamConPage implements OnInit {
       }
     } 
   };
+  imageUrl: string | undefined;
 
   constructor(public qrcode: NgxScannerQrcodeService){
       this.dataProfe = localStorage.getItem("dataProfeCamera")}
@@ -58,23 +59,21 @@ export class CamConPage implements OnInit {
     }
 
     async tomarFoto() {
-      const coordinates = await Geolocation.getCurrentPosition();
-      // Filtra los resultados para obtener solo los valores
-      let values1 = coordinates.coords["latitude"]
-      let values2 = coordinates.coords["longitude"]
-      console.log("latitud: ",values1)
-      console.log("longitud: ",values2)
-
-
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
         resultType: CameraResultType.Uri,
         source: CameraSource.Camera,
       });
-
-      var imageUrl = image.webPath;
+      this.imageUrl = image.webPath;
     };
+
+    //const coordinates = await Geolocation.getCurrentPosition();
+    // Filtra los resultados para obtener solo los valores
+    //let values1 = coordinates.coords["latitude"]
+    //let values2 = coordinates.coords["longitude"]
+    //console.log("latitud: ",values1)
+    //console.log("longitud: ",values2)
 
   ngOnInit() {
     Camera.requestPermissions();

@@ -37,6 +37,7 @@
 
   <div id="btnScanerConfirmar">
     <ion-button expand="block" color="warning" (click)="tomarFoto()" id="btnConfirmar">Selfie</ion-button>
+    <img [src]="imageUrl" *ngIf="imageUrl" />
   </div>
 
   <div id="btnScanerConfirmar">

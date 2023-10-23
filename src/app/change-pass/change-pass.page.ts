@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
 import { StorageService } from '../services/storage.service';
 import { Usuario } from '../models/usuario';
-
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-change-pass',
   templateUrl: './change-pass.page.html',
@@ -12,18 +12,22 @@ import { Usuario } from '../models/usuario';
 export class ChangePassPage implements OnInit {
 
   formularioContrasena: FormGroup;
+  cambioPass: any;
+  Usuariopassword: any;
 
   constructor(public fb: FormBuilder,
     public alertController: AlertController,
     public navCtrl: NavController,
-    public storageService: StorageService) { 
+    public storageService: StorageService,
+    private storage: Storage) { 
       this.formularioContrasena = this.fb.group({
         'password': new FormControl("", Validators.required),
         'confirmacionPassword': new FormControl("", Validators.required)
         }); 
     }
 
-  ngOnInit() {
+  async ngOnInit() {
+
   }
   
 
@@ -45,7 +49,7 @@ export class ChangePassPage implements OnInit {
       password: f.password
       }
 
-    await this.storageService.read("usuario").then(async (data:any)=>{
+      await this.storageService.read("usuario").then(async (data:any)=>{
       let usu = JSON.parse(data.value);
 
       if(this.formularioContrasena.valid, usu){

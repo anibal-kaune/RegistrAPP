@@ -31,7 +31,7 @@ export class ListaRegionesComponent  implements OnInit {
   }
   seleccionarRegion(region: any) {
     // Puedes hacer lo que necesites con la región seleccionada, como enviarla a otra página o realizar otras acciones.
-    console.log('Región seleccionada:', region.nombre);
+    console.log('Región seleccionada:', region.id);
   }
 
 }

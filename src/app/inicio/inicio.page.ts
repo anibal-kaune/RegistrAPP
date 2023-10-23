@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
-import { Usuario } from '../models/usuario';
+import { Storage, StorageConfig } from '@ionic/storage';
 
 @Component({
   selector: 'app-inicio',
@@ -8,16 +8,17 @@ import { Usuario } from '../models/usuario';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-  userAlum: string | null;
+  nombreUsuario:string | undefined;
+  userAlum: any;
 
-  constructor(public storageService: StorageService) {
-    let value = JSON.parse(localStorage.getItem("usuario")!);
-    //const nam = this.storageService.showName("usuario");
-    this.userAlum = value.nombre;
-   }
-
-  ngOnInit() {
+  constructor(public storage: Storage){
   }
+
+   async ngOnInit() {
+    let value = JSON.parse(localStorage.getItem("usuario")!);
+    this.userAlum = value.nombre;
+
+}
 
   logOut(){
     localStorage.removeItem('ingresado');

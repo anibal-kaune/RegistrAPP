@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular'
 import { Preferences } from '@capacitor/preferences';
-
 const KEY_USER = 'user';
 
 const usuario = {
-    nombre: '...',
-    apellido: '...',
-    rut: '...',
-    correo: '...',
-    region: '...',
-    comuna: '...',
-    password: '...'
+    nombre: '',
+    apellido: '',
+    rut: '',
+    correo: '',
+    region: '',
+    comuna: '',
+    password: ''
   }
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
-
+  
   constructor(private storage: Storage) {
     this.init();
     /*this.user = {

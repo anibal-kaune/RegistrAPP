@@ -15,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http'
             AppRoutingModule,
             MatButtonModule, 
             HttpClientModule,
-            IonicStorageModule.forRoot()],
+            IonicStorageModule.forRoot(),
+            IonicModule.forRoot(),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
