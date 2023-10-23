@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark" id="tool">
+    <ion-img src="assets/image/logo-duoc.svg" alt="Duoc logo" id="ima"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 class="ion-text-center" style="color: rgb(56, 92, 252);">¡Bienvenido! {{ nombreUsuario }} </h1>
+  <ion-card>
+    <ion-card-content>
+      <ion-button [routerLink]="['/cam-con']" expand="block" color="warning">Registrar asistencia</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <div id="logout">
+    <ion-button (click)="logOut()" [routerLink]="['/home']" expand="block" color="dark" class="ion-padding-top">Cerrar Sesión</ion-button>
+  </div>
+  
+</ion-content>
