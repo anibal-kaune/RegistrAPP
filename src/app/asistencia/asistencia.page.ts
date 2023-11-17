@@ -45,6 +45,8 @@ export class AsistenciaPage implements OnInit {
       buttons: ['Aceptar']
     });
 
+    await alert.present();
+
   };
 
 }
