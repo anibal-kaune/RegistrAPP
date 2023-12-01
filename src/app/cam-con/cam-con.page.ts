@@ -22,9 +22,11 @@ export class CamConPage implements OnInit {
   public result = [];
 
   public config: ScannerQRCodeConfig = {
+    
     constraints: { 
       video: {
-        width: window.innerWidth
+        width: window.innerWidth,
+        facingMode: 'user',
       }
     } 
   };
