@@ -16,7 +16,7 @@ export class InicioPage implements OnInit {
 
     ngOnInit() {
 
-    this.nombreUsuario = localStorage.getItem('nombre')!
+    this.nombreUsuario = localStorage.getItem('nombreUsuariJ')!
 
 
 }
